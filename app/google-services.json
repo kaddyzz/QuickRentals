@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "840978496618",
+    "firebase_url": "https://quick-rentals-5e6dd.firebaseio.com",
+    "project_id": "quick-rentals-5e6dd",
+    "storage_bucket": "quick-rentals-5e6dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840978496618:android:a1ade09a7e0f0e44f49e13",
+        "android_client_info": {
+          "package_name": "com.example.quickrentals"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840978496618-o6380tjeirkr3b2shdrp4tjd6rn60nsl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quickrentals",
+            "certificate_hash": "bea24e28cb103de6c77553ea8153e74d84874914"
+          }
+        },
+        {
+          "client_id": "840978496618-41qtj2iqm17vu0qfonnfj6h09i3hmp6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrw0rP5mB9jeF83h9RB_lBSD8asOgt0wE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840978496618-41qtj2iqm17vu0qfonnfj6h09i3hmp6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

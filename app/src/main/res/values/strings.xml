@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">QuickRentals</string>
+    <string name="bgImage">Background Image</string>
+    <string name="placeholderEmail">Email</string>
+    <string name="imageView">Image View</string>
+    <string name="PlaceholderPassword">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="signup">Sign Up</string>
+    <string name="signUpIntro">Don\'t have an account with us ?</string>
+    <string name="signin">Sign In</string>
+    <string name="forgotpassword">Forgot Password ?</string>
+    <string name="signupQuestion">Don\'t have an account?</string>
+    <string name="signupC">SIGN UP</string>
+    <string name="or">OR</string>
+    <string name="subSignUp">and book amazing rides.</string>
+    <string name="name">Name</string>
+    <string name="forgotPassword">Forgot Password?</string>
+    <string name="forgotpasswordsubtext">You can reset your password here.</string>
+    <string name="hello">Hello,</string>
+    <string name="bookaride">Let\'s book a ride.</string>
+    <string name="pickup">Pick up date</string>
+    <string name="returndate">Return date</string>
+    <string name="availablecar">Available Cars</string>
+    <string name="booknow">Book Now</string>
+</resources>
