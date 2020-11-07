@@ -22,4 +22,31 @@
     <string name="returndate">Return date</string>
     <string name="availablecar">Available Cars</string>
     <string name="booknow">Book Now</string>
+    <string name="addionalKey">Addional Key ($10)</string>
+    <string name="gloves">Driving Gloves ($10)</string>
+    <string name="childSeat">Child Seat ($70)</string>
+    <string name="addons">Add Ons</string>
+    <string name="pickupLocation">Select pickup location</string>
+    <string name="selectaddons">Select Add Ons</string>
+    <string name="Review">Review</string>
+    <string name="navigation_drawer_open">Open Navigation Bar</string>
+    <string name="navigation_drawer_close">Close Navigation Bar</string>
+    <string name="homeSide">Home</string>
+    <string name="profileSide">Profile</string>
+    <string name="historySide">Order\'s History</string>
+    <string name="shareSide">Share</string>
+    <string name="logoutSide">Logout</string>
+    <string name="othersSide">Others</string>
+
+    <string-array name="pickuplocations">
+        <item>Surrey</item>
+        <item>South Burnaby</item>
+        <item>Metrotown</item>
+        <item>Coquitlam</item>
+        <item>Port Coquitlam</item>
+        <item>Newton</item>
+        <item>Vancouver</item>
+        <item>Richmond</item>
+    </string-array>
+
 </resources>

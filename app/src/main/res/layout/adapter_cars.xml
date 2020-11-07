@@ -6,11 +6,11 @@
     android:layout_height="250dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewCarBook"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        app:cardBackgroundColor="#F6F2F2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +18,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient50shadesofgrey2">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewItem1"
+                android:id="@+id/cardViewCar"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="8dp"
@@ -34,7 +35,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/gradient50shadesofgrey"
+                    android:background="@drawable/customgrad1"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -57,48 +58,50 @@
             </androidx.cardview.widget.CardView>
 
             <Button
-                android:id="@+id/button"
-                android:layout_width="132dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/gradient2"
+                android:id="@+id/buttonBook"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:enabled="true"
+                android:focusable="auto"
                 android:fontFamily="@font/lato"
-                android:text="@string/booknow"
-                android:textColor="@color/design_default_color_background"
+                android:text="BOOK"
+                android:textColor="#5E5454"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewItem1" />
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCar" />
 
             <TextView
                 android:id="@+id/textViewTitle2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="21dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/lato"
                 android:text="Lamborghini Huracán"
-                android:textColor="#5E5454"
+                android:textColor="#eaeaea"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/button"
+                app:layout_constraintEnd_toStartOf="@+id/buttonBook"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewItem1" />
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCar" />
 
             <TextView
                 android:id="@+id/textViewTitle3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="51dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/lato"
                 android:text="$350 per day"
-                android:textColor="#5E5454"
+                android:textColor="#eaeaea"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/button"
+                app:layout_constraintEnd_toStartOf="@+id/buttonBook"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewItem1" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

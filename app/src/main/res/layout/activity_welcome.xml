@@ -7,122 +7,187 @@
     android:background="@drawable/customgrad1"
     tools:context=".WelcomeActivity">
 
-    <Button
-        android:id="@+id/buttonSelectCar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rrarrow"
+    <ImageView
+        android:id="@+id/imageViewSun"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@drawable/customgrad2"
         android:elevation="5dp"
-        android:fontFamily="@font/lato"
-        android:stateListAnimator="@null"
-        android:textColor="@android:color/background_light"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReturnDate" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg" />
+
+    <View
+        android:id="@+id/viewBg2"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:alpha="0.5"
+        android:background="#131010"
+        android:elevation="5dp"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewSun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/viewBg"
+        android:layout_width="0dp"
+        android:layout_height="325dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:alpha="0.1"
+        android:background="@drawable/gradient50shadesofgrey2"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/bookaride"
+        android:textColor="#5E5454"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPickTitle"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:elevation="5dp"
         android:fontFamily="@font/lato"
-        android:text="@string/hello"
-        android:textColor="#414141"
-        android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/lato"
-        android:text="Prince"
-        android:textColor="#414141"
-        android:textSize="36sp"
+        android:text="Good Morning"
+        android:textColor="#5E5454"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSun" />
+
+    <TextView
+        android:id="@+id/textViewTitle7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="Welcome to Quick Rentals"
+        android:textColor="#eaeaea"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/viewBg2"
+        app:layout_constraintStart_toStartOf="@+id/viewBg2"
+        app:layout_constraintTop_toTopOf="@+id/viewBg2" />
 
     <TextView
         android:id="@+id/textViewSub"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:elevation="5dp"
         android:fontFamily="@font/lato"
-        android:text="@string/bookaride"
-        android:textColor="#414141"
-        android:textSize="18sp"
+        android:textColor="#5E5454"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
     <TextView
         android:id="@+id/textViewPickTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="148dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/lato"
         android:text="@string/pickup"
-        android:textColor="#414141"
+        android:textColor="#5E5454"
         android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPickupDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
-
-    <TextView
-        android:id="@+id/textViewReturnTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:fontFamily="@font/lato"
-        android:text="@string/returndate"
-        android:textColor="#414141"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPickupDate" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextPickupDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#5E5454"
         android:clickable="true"
-        android:focusable="false"
         android:ems="10"
+        android:focusable="false"
+        android:textColor="#5E5454"
+        app:layout_constraintBottom_toTopOf="@+id/textViewReturnTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPickTitle" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewReturnTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/returndate"
+        android:textColor="#5E5454"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextReturnDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextReturnDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#5E5454"
+        android:clickable="true"
         android:ems="10"
         android:focusable="false"
-        android:clickable="true"
+        android:textColor="#5E5454"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSelectCar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewReturnTitle" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSelectCar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/rrarrow"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:stateListAnimator="@null"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

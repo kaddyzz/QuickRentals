@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.quickrentals">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,10 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CarsActivity"></activity>
-        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".AddOnsActivity" />
+        <activity android:name=".CarsDetailsActivity" />
+        <activity android:name=".CarsActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".SignUp" />
+        <activity android:name=".NavigationMainActivity"/>
         <activity android:name=".FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

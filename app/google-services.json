@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "840978496618",
-    "firebase_url": "https://quick-rentals-5e6dd.firebaseio.com",
-    "project_id": "quick-rentals-5e6dd",
-    "storage_bucket": "quick-rentals-5e6dd.appspot.com"
+    "project_number": "374970919737",
+    "firebase_url": "https://quick-rentals-00-1604131870602.firebaseio.com",
+    "project_id": "quick-rentals-00-1604131870602",
+    "storage_bucket": "quick-rentals-00-1604131870602.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:840978496618:android:a1ade09a7e0f0e44f49e13",
+        "mobilesdk_app_id": "1:374970919737:android:8c45708906bcbb4d8c16e8",
         "android_client_info": {
           "package_name": "com.example.quickrentals"
         }
       },
       "oauth_client": [
         {
-          "client_id": "840978496618-o6380tjeirkr3b2shdrp4tjd6rn60nsl.apps.googleusercontent.com",
+          "client_id": "374970919737-l6bmv4amv59rt5qodmo9k9c31tbmid40.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.quickrentals",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "840978496618-41qtj2iqm17vu0qfonnfj6h09i3hmp6o.apps.googleusercontent.com",
+          "client_id": "374970919737-gaintihhtdsc68ov4t69hlote79bfnas.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCrw0rP5mB9jeF83h9RB_lBSD8asOgt0wE"
+          "current_key": "AIzaSyAb6pCAzlQZamDU1MTdOfcvdVf1-pZ89PU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "840978496618-41qtj2iqm17vu0qfonnfj6h09i3hmp6o.apps.googleusercontent.com",
+              "client_id": "374970919737-gaintihhtdsc68ov4t69hlote79bfnas.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

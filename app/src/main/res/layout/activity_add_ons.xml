@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2"
+    tools:context=".AddOnsActivity">
+
+    <View
+        android:id="@+id/viewBgTitle"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.2"
+        android:background="@color/cardview_dark_background"
+        android:elevation="5dp"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBgAddOns" />
+
+    <View
+        android:id="@+id/viewBgAddOns"
+        android:layout_width="0dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.1"
+        android:background="@drawable/gradient50shadesofgrey2"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSubTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="@string/addons"
+        android:textColor="#414141"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBgTitle"
+        app:layout_constraintEnd_toEndOf="@+id/viewBgTitle"
+        app:layout_constraintStart_toStartOf="@+id/viewBgTitle"
+        app:layout_constraintTop_toTopOf="@+id/viewBgTitle" />
+
+    <CheckBox
+        android:id="@+id/checkBoxChildSeat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:buttonTint="#414141"
+        android:text="@string/childSeat"
+        android:textColor="#414141"
+        app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
+        app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
+        app:layout_constraintTop_toBottomOf="@+id/viewBgTitle" />
+
+    <CheckBox
+        android:id="@+id/checkBoxGloves"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:buttonTint="#414141"
+        android:text="@string/gloves"
+        android:textColor="#414141"
+        app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxChildSeat" />
+
+    <CheckBox
+        android:id="@+id/checkBoxAddionalKey"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:buttonTint="#414141"
+        android:text="@string/addionalKey"
+        android:textColor="#414141"
+        app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxGloves" />
+
+    <View
+        android:id="@+id/viewBgPickupTitle"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.2"
+        android:background="@color/cardview_dark_background"
+        android:elevation="5dp"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBgPickup" />
+
+    <TextView
+        android:id="@+id/textViewSubPickup"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="@string/pickupLocation"
+        android:textColor="#414141"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBgPickupTitle"
+        app:layout_constraintEnd_toEndOf="@+id/viewBgPickupTitle"
+        app:layout_constraintStart_toStartOf="@+id/viewBgPickupTitle"
+        app:layout_constraintTop_toTopOf="@+id/viewBgPickupTitle" />
+
+    <View
+        android:id="@+id/viewBgPickup"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.1"
+        android:background="@drawable/gradient50shadesofgrey2"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewBgAddOns" />
+
+    <Spinner
+        android:id="@+id/spinnerPickupLocations"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:entries="@array/pickuplocations"
+        app:layout_constraintEnd_toEndOf="@+id/viewBgPickup"
+        app:layout_constraintStart_toStartOf="@+id/viewBgPickup"
+        app:layout_constraintTop_toBottomOf="@+id/viewBgPickupTitle" />
+
+    <Button
+        android:id="@+id/buttonFinalReview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/gradient2"
+        android:elevation="5dp"
+        android:text="@string/Review"
+        android:textColor="#414141"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
