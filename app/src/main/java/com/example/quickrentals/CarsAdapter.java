@@ -13,33 +13,43 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.quickrentals.ModelClasses.Cars;
+
 import java.util.List;
 
 public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
 
     private List<Cars> carsList;
     private Context context;
-    private int positionIndex = 0;
+    private String startDate, endDate;
 
-
-    public CarsAdapter(List<Cars> carsList)
+    public CarsAdapter(List<Cars> carsList, String startDate, String endDate)
     {
         this.carsList = carsList;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         ImageView imageCar;
+        ImageView imageCarLogo;
         CardView cardViewCarBook;
         Button buttonBook;
+        TextView textViewMakeModel;
+        TextView textViewPrice;
 
 
         public ViewHolder(View itemView)
         {
             super(itemView);
-            this.imageCar = itemView.findViewById(R.id.imageViewCar);
+            this.imageCar = itemView.findViewById(R.id.imageViewCarImage);
+            this.imageCarLogo = itemView.findViewById(R.id.imageViewCarLogo);
             this.cardViewCarBook = itemView.findViewById(R.id.cardViewCarBook);
             this.buttonBook = itemView.findViewById(R.id.buttonBook);
+            this.textViewMakeModel = itemView.findViewById(R.id.textViewCarMakeModel);
+            this.textViewPrice = itemView.findViewById(R.id.textViewPrice);
         }
 
     }
@@ -61,10 +71,15 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CarsAdapter.ViewHolder holder, int position) {
 
-        //final Cars carData = carsList.get(positionIndex);
+        final Cars carData = carsList.get(position);
 
-        //Set car name  and image
-        //Glide.with(context).load(carData.getCarImage()).into(holder.imagePizza1);
+        //Set car details
+        Glide.with(context).load(carData.getCarImage()).into(holder.imageCar);
+        Glide.with(context).load(carData.getCarLogo()).into(holder.imageCarLogo);
+
+        holder.textViewMakeModel.setText(String.format("%s %s", carData.getCarMake(), carData.getCarModel()));
+        holder.textViewPrice.setText(String.format("$ %s", carData.getCarPrice()));
+
 
         holder.buttonBook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +87,11 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
 
                 //Move to next
                 Intent moveWithData = new Intent( context, CarsDetailsActivity.class);
+
+                moveWithData.putExtra("selectedCar",carData);
+                moveWithData.putExtra("startDate",startDate);
+                moveWithData.putExtra("endDate",endDate);
+
                 context.startActivity(moveWithData);
             }
         });
@@ -79,6 +99,6 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return carsList.size();
     }
 }

@@ -4,17 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient2"
+    android:background="@drawable/gradient50shadesofgrey2"
     tools:context=".AddOnsActivity">
 
     <View
-        android:id="@+id/viewBgTitle"
+        android:id="@+id/viewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:background="#6200EE"
+        android:elevation="5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="5sp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="@string/addons"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewTitle"
+        app:layout_constraintEnd_toEndOf="@+id/viewTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewTitle" />
+
+    <View
+        android:id="@+id/viewBgTitleDate"
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:alpha="0.2"
-        android:background="@color/cardview_dark_background"
+        android:background="@color/common_google_signin_btn_text_dark_default"
         android:elevation="5dp"
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,13 +55,13 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:alpha="0.1"
-        android:background="@drawable/gradient50shadesofgrey2"
+        android:background="#eaeaea"
         android:elevation="0dp"
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/viewTitle" />
 
     <TextView
         android:id="@+id/textViewSubTitle"
@@ -45,13 +71,13 @@
         android:fontFamily="@font/lato"
         android:gravity="center"
         android:text="@string/addons"
-        android:textColor="#414141"
+        android:textColor="#eaeaea"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewBgTitle"
-        app:layout_constraintEnd_toEndOf="@+id/viewBgTitle"
-        app:layout_constraintStart_toStartOf="@+id/viewBgTitle"
-        app:layout_constraintTop_toTopOf="@+id/viewBgTitle" />
+        app:layout_constraintBottom_toBottomOf="@+id/viewBgTitleDate"
+        app:layout_constraintEnd_toEndOf="@+id/viewBgTitleDate"
+        app:layout_constraintStart_toStartOf="@+id/viewBgTitleDate"
+        app:layout_constraintTop_toTopOf="@+id/viewBgTitleDate" />
 
     <CheckBox
         android:id="@+id/checkBoxChildSeat"
@@ -60,12 +86,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:buttonTint="#414141"
+        android:buttonTint="#eaeaea"
+        android:fontFamily="@font/lato"
         android:text="@string/childSeat"
-        android:textColor="#414141"
+        android:textColor="#eaeaea"
         app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
         app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
-        app:layout_constraintTop_toBottomOf="@+id/viewBgTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/viewBgTitleDate" />
 
     <CheckBox
         android:id="@+id/checkBoxGloves"
@@ -74,9 +101,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:buttonTint="#414141"
+        android:buttonTint="#eaeaea"
+        android:fontFamily="@font/lato"
         android:text="@string/gloves"
-        android:textColor="#414141"
+        android:textColor="#eaeaea"
         app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
@@ -89,9 +117,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:buttonTint="#414141"
+        android:buttonTint="#eaeaea"
+        android:fontFamily="@font/lato"
         android:text="@string/addionalKey"
-        android:textColor="#414141"
+        android:textColor="#eaeaea"
         app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
@@ -104,7 +133,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:alpha="0.2"
-        android:background="@color/cardview_dark_background"
+        android:background="@color/common_google_signin_btn_text_dark_default"
         android:elevation="5dp"
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +148,7 @@
         android:fontFamily="@font/lato"
         android:gravity="center"
         android:text="@string/pickupLocation"
-        android:textColor="#414141"
+        android:textColor="#eaeaea"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewBgPickupTitle"
@@ -135,7 +164,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:alpha="0.1"
-        android:background="@drawable/gradient50shadesofgrey2"
+        android:background="#eaeaea"
         android:elevation="0dp"
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,13 +179,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="#eaeaea"
         android:entries="@array/pickuplocations"
         app:layout_constraintEnd_toEndOf="@+id/viewBgPickup"
         app:layout_constraintStart_toStartOf="@+id/viewBgPickup"
         app:layout_constraintTop_toBottomOf="@+id/viewBgPickupTitle" />
 
     <Button
-        android:id="@+id/buttonFinalReview"
+        android:id="@+id/buttonConfirmReview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -164,6 +194,7 @@
         android:layout_marginBottom="32dp"
         android:background="@drawable/gradient2"
         android:elevation="5dp"
+        android:fontFamily="@font/lato"
         android:text="@string/Review"
         android:textColor="#414141"
         app:layout_constraintBottom_toBottomOf="parent"

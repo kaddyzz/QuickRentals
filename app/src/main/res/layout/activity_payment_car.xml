@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient50shadesofgrey2"
+    tools:context=".PaymentCarActivity">
+
+    <View
+        android:id="@+id/viewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:background="#6200EE"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="@string/confirmation"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewTitle"
+        app:layout_constraintEnd_toEndOf="@+id/viewTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewTitle" />
+
+    <Button
+        android:id="@+id/buttonPayAtPickup"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/gradient2"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/payAtPickup"
+        android:textColor="#414141"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewTitle" />
+
+    <Button
+        android:id="@+id/buttonPayPaypal"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/gradient2"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/payUsingPaypal"
+        android:textColor="#414141"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPayAtPickup" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="99dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/customgrad11"
+        android:elevation="10dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="$125"
+        android:textColor="#eaeaea"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonPayAtPickup" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="99dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/customgrad11"
+        android:elevation="10dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="$122.5"
+        android:textColor="#eaeaea"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonPayPaypal" />
+</androidx.constraintlayout.widget.ConstraintLayout>

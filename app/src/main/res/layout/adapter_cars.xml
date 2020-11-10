@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewCarBook"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,10 +24,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewCar"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                app:layout_constraintDimensionRatio="2:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -39,7 +40,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewCar"
+                        android:id="@+id/imageViewCarImage"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_gravity="center"
@@ -51,8 +52,7 @@
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0"
-                        app:srcCompat="@drawable/car7" />
+                        app:layout_constraintVertical_bias="1.0" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -66,7 +66,7 @@
                 android:enabled="true"
                 android:focusable="auto"
                 android:fontFamily="@font/lato"
-                android:text="BOOK"
+                android:text="@string/book"
                 android:textColor="#5E5454"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -74,34 +74,42 @@
                 app:layout_constraintTop_toBottomOf="@+id/cardViewCar" />
 
             <TextView
-                android:id="@+id/textViewTitle2"
+                android:id="@+id/textViewCarMakeModel"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/lato"
-                android:text="Lamborghini Huracán"
                 android:textColor="#eaeaea"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/buttonBook"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCarLogo"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCar" />
+
+            <ImageView
+                android:id="@+id/imageViewCarLogo"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/imageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewCar" />
 
             <TextView
-                android:id="@+id/textViewTitle3"
+                android:id="@+id/textViewPrice"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="14dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/lato"
-                android:text="$350 per day"
                 android:textColor="#eaeaea"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toStartOf="@+id/buttonBook"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewTitle2" />
+                app:layout_constraintStart_toEndOf="@+id/imageViewCarLogo"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCarMakeModel" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

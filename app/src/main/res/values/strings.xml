@@ -22,7 +22,7 @@
     <string name="returndate">Return date</string>
     <string name="availablecar">Available Cars</string>
     <string name="booknow">Book Now</string>
-    <string name="addionalKey">Addional Key ($10)</string>
+    <string name="addionalKey">Additional Key ($10)</string>
     <string name="gloves">Driving Gloves ($10)</string>
     <string name="childSeat">Child Seat ($70)</string>
     <string name="addons">Add Ons</string>
@@ -37,6 +37,18 @@
     <string name="shareSide">Share</string>
     <string name="logoutSide">Logout</string>
     <string name="othersSide">Others</string>
+    <string name="finalReview">Final Review</string>
+    <string name="car">Car</string>
+    <string name="date">Selected Dates</string>
+    <string name="selectedAddOns">Selected Add Ons</string>
+    <string name="selectedLocation">Selected Location</string>
+    <string name="proceedToBook">Proceed to Book</string>
+    <string name="confirmation">Payment Confirmation</string>
+    <string name="payAtPickup">Pay at Pickup</string>
+    <string name="payUsingPaypal">Pay using Paypal</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="goToHome">Go To Home</string>
+    <string name="book">BOOK</string>
 
     <string-array name="pickuplocations">
         <item>Surrey</item>

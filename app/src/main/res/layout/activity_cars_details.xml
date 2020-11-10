@@ -8,58 +8,63 @@
     tools:context=".CarsDetailsActivity">
 
     <ImageView
-        android:id="@+id/imageViewCar"
+        android:id="@+id/imageViewLogo"
         android:layout_width="0dp"
-        android:layout_height="211dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="0dp"
+        android:alpha="0.3"
+        android:contentDescription="@string/imageView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/car7" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewCarImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewTitle4"
+        android:id="@+id/textViewCarMake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lato"
-        android:text="Lamborghini"
         android:textColor="#eaeaea"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCarImage" />
 
     <TextView
-        android:id="@+id/textViewTitle5"
+        android:id="@+id/textViewCarModel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lato"
-        android:text="Huracán EVO Spyder"
         android:textColor="#eaeaea"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle4" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCarMake" />
 
     <TextView
-        android:id="@+id/textViewTitle6"
+        android:id="@+id/textViewCarPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/lato"
-        android:text="$125 per day"
         android:textColor="#eaeaea"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCarImage" />
 
     <View
-        android:id="@+id/viewBG"
+        android:id="@+id/viewTitle"
         android:layout_width="0dp"
         android:layout_height="280dp"
         android:layout_marginStart="8dp"
@@ -69,7 +74,7 @@
         android:background="@drawable/customgrad1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle5" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCarModel" />
 
     <TextView
         android:id="@+id/textViewHP"
@@ -77,12 +82,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lato"
-        android:text="630 HP"
         android:textColor="#eaeaea"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewHPs"
+        app:layout_constraintStart_toStartOf="@+id/imageViewHPs"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewHPs" />
 
     <TextView
         android:id="@+id/textViewSeats"
@@ -90,12 +94,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lato"
-        android:text="2 seats"
         android:textColor="#eaeaea"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewSeats"
+        app:layout_constraintStart_toStartOf="@+id/imageViewSeats"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSeats" />
 
     <TextView
         android:id="@+id/textViewCarType"
@@ -103,12 +106,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lato"
-        android:text="Sports Car"
         android:textColor="#eaeaea"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewCarType"
+        app:layout_constraintStart_toStartOf="@+id/imageViewCarType"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCarType" />
 
     <TextView
         android:id="@+id/textViewCylinder"
@@ -116,12 +118,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lato"
-        android:text="10 Cylinder"
         android:textColor="#eaeaea"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewCylinder"
+        app:layout_constraintStart_toStartOf="@+id/imageViewCylinder"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCylinder" />
 
     <TextView
         android:id="@+id/textViewFuel"
@@ -129,12 +130,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lato"
-        android:text="15L/100km"
         android:textColor="#eaeaea"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewFuelEconomy"
+        app:layout_constraintStart_toStartOf="@+id/imageViewFuelEconomy"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewFuelEconomy" />
 
     <TextView
         android:id="@+id/textViewSpeed"
@@ -142,73 +142,78 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lato"
-        android:text="325 km/h"
         android:textColor="#eaeaea"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewCarSpeed"
+        app:layout_constraintStart_toStartOf="@+id/imageViewCarSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCarSpeed" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewSeats"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:contentDescription="@string/imageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle5"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCarModel"
         app:srcCompat="@drawable/seat" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageViewCylinder"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="80dp"
+        android:contentDescription="@string/imageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSeats"
         app:srcCompat="@drawable/gascylinder" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageViewHPs"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginTop="82dp"
         android:layout_marginEnd="32dp"
+        android:contentDescription="@string/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewFuelEconomy"
         app:srcCompat="@drawable/carengine" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageViewCarType"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        android:contentDescription="@string/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewHPs"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imageViewCylinder"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCarSpeed"
         app:srcCompat="@drawable/sportcar" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageViewCarSpeed"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        android:contentDescription="@string/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewFuelEconomy"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle5"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSeats"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCarModel"
         app:srcCompat="@drawable/speedometer" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/imageViewFuelEconomy"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
+        android:contentDescription="@string/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle5"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCarModel"
         app:srcCompat="@drawable/gaspump" />
 
     <Button

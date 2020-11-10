@@ -79,7 +79,13 @@ public class WelcomeActivity extends Fragment implements View.OnClickListener {
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
 
-                            editTextPickupDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.set(year, monthOfYear, dayOfMonth);
+
+                            SimpleDateFormat format = new SimpleDateFormat("EEE, d MMM");
+                            String strDatePickup = format.format(calendar.getTime());
+
+                            editTextPickupDate.setText(strDatePickup);
 
                         }
                     }, mYear, mMonth, mDay);
@@ -112,7 +118,13 @@ public class WelcomeActivity extends Fragment implements View.OnClickListener {
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
 
-                            editTextReturnDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.set(year, monthOfYear, dayOfMonth);
+
+                            SimpleDateFormat format = new SimpleDateFormat("EEE, d MMM");
+                            String strDateReturn = format.format(calendar.getTime());
+
+                            editTextReturnDate.setText(strDateReturn);
 
                         }
                     }, mYear, mMonth, mDay);
