@@ -2,6 +2,7 @@ package com.example.quickrentals;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,12 @@ import java.time.LocalDate;
 
 public class CarsDetailsActivity extends AppCompatActivity {
 
+    // View name of the header image. Used for activity scene transitions
+    public static final String VIEW_NAME_HEADER_IMAGE = "detail:header:image";
+
+    // View name of the header title. Used for activity scene transitions
+    public static final String VIEW_NAME_HEADER_TITLE = "detail:header:title";
+
     private KProgressHUD kProgressHUD;
     private FirebaseFirestore db;
     private String startDate, endDate;
@@ -32,6 +39,8 @@ public class CarsDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cars_details);
+
+
 
         // [START get_firestore_instance]
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -57,6 +66,14 @@ public class CarsDetailsActivity extends AppCompatActivity {
 
         final ImageView imageViewCar = findViewById(R.id.imageViewCarImage);
         final ImageView imageViewCarLogo = findViewById(R.id.imageViewLogo);
+
+        /*
+         * Set the name of the view's which will be transition to, using the static values above.
+         * This could be done in the layout XML, but exposing it via static variables allows easy
+         * querying from other Activities
+         */
+        ViewCompat.setTransitionName(imageViewCar, VIEW_NAME_HEADER_IMAGE);
+        //ViewCompat.setTransitionName(textViewCarMake, VIEW_NAME_HEADER_TITLE);
 
         //Get selected car ID from bundle
         Bundle bundle = getIntent().getExtras();
@@ -109,5 +126,12 @@ public class CarsDetailsActivity extends AppCompatActivity {
                 )*/
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        //Do nothing on back press
+        CarsDetailsActivity.this.finishAfterTransition();
     }
 }

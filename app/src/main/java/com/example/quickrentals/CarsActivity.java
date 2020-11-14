@@ -30,6 +30,8 @@ public class CarsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //setTheme("@valuew");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cars);
 

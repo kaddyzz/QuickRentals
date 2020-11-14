@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient50shadesofgrey2"
+    android:background="@drawable/customgrad1"
     tools:context=".AddOnsActivity">
 
     <View
@@ -34,20 +34,6 @@
         app:layout_constraintTop_toTopOf="@+id/viewTitle" />
 
     <View
-        android:id="@+id/viewBgTitleDate"
-        android:layout_width="0dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:alpha="0.2"
-        android:background="@color/common_google_signin_btn_text_dark_default"
-        android:elevation="5dp"
-        android:stateListAnimator="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewBgAddOns" />
-
-    <View
         android:id="@+id/viewBgAddOns"
         android:layout_width="0dp"
         android:layout_height="182dp"
@@ -55,7 +41,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:alpha="0.1"
-        android:background="#eaeaea"
+        android:background="@drawable/customgrad2"
         android:elevation="0dp"
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,36 +49,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewTitle" />
 
+    <View
+        android:id="@+id/viewSeperator"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="#4A4949"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubTitle" />
+
     <TextView
         android:id="@+id/textViewSubTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
         android:elevation="5dp"
         android:fontFamily="@font/lato"
-        android:gravity="center"
-        android:text="@string/addons"
-        android:textColor="#eaeaea"
-        android:textSize="18sp"
+        android:text="@string/add_ons"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewBgTitleDate"
-        app:layout_constraintEnd_toEndOf="@+id/viewBgTitleDate"
-        app:layout_constraintStart_toStartOf="@+id/viewBgTitleDate"
-        app:layout_constraintTop_toTopOf="@+id/viewBgTitleDate" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBgAddOns" />
 
     <CheckBox
         android:id="@+id/checkBoxChildSeat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="8dp"
-        android:buttonTint="#eaeaea"
         android:fontFamily="@font/lato"
         android:text="@string/childSeat"
-        android:textColor="#eaeaea"
         app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
         app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
-        app:layout_constraintTop_toBottomOf="@+id/viewBgTitleDate" />
+        app:layout_constraintTop_toBottomOf="@+id/viewSeperator" />
 
     <CheckBox
         android:id="@+id/checkBoxGloves"
@@ -101,10 +96,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:buttonTint="#eaeaea"
         android:fontFamily="@font/lato"
         android:text="@string/gloves"
-        android:textColor="#eaeaea"
         app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
@@ -117,54 +110,38 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:buttonTint="#eaeaea"
         android:fontFamily="@font/lato"
         android:text="@string/addionalKey"
-        android:textColor="#eaeaea"
         app:layout_constraintEnd_toEndOf="@+id/viewBgAddOns"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/viewBgAddOns"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxGloves" />
 
-    <View
-        android:id="@+id/viewBgPickupTitle"
+    <TextView
+        android:id="@+id/textViewSubPickup"
         android:layout_width="0dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:alpha="0.2"
-        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:elevation="5dp"
-        android:stateListAnimator="@null"
+        android:fontFamily="@font/lato"
+        android:text="@string/pickupLocation"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/viewBgPickup" />
 
-    <TextView
-        android:id="@+id/textViewSubPickup"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:fontFamily="@font/lato"
-        android:gravity="center"
-        android:text="@string/pickupLocation"
-        android:textColor="#eaeaea"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewBgPickupTitle"
-        app:layout_constraintEnd_toEndOf="@+id/viewBgPickupTitle"
-        app:layout_constraintStart_toStartOf="@+id/viewBgPickupTitle"
-        app:layout_constraintTop_toTopOf="@+id/viewBgPickupTitle" />
-
     <View
         android:id="@+id/viewBgPickup"
         android:layout_width="0dp"
-        android:layout_height="96dp"
+        android:layout_height="75dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:alpha="0.1"
-        android:background="#eaeaea"
+        android:background="@drawable/customgrad2"
         android:elevation="0dp"
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
@@ -172,18 +149,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewBgAddOns" />
 
+    <View
+        android:id="@+id/viewSeperator6"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="#4A4949"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubPickup" />
+
     <Spinner
         android:id="@+id/spinnerPickupLocations"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#eaeaea"
         android:entries="@array/pickuplocations"
         app:layout_constraintEnd_toEndOf="@+id/viewBgPickup"
         app:layout_constraintStart_toStartOf="@+id/viewBgPickup"
-        app:layout_constraintTop_toBottomOf="@+id/viewBgPickupTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubPickup" />
 
     <Button
         android:id="@+id/buttonConfirmReview"

@@ -1,5 +1,7 @@
 package com.example.quickrentals;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -69,7 +74,7 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CarsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CarsAdapter.ViewHolder holder, int position) {
 
         final Cars carData = carsList.get(position);
 
@@ -85,14 +90,23 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
 
-                //Move to next
                 Intent moveWithData = new Intent( context, CarsDetailsActivity.class);
 
+                // create the transition animation - the images in the layouts
+                // of both activities are defined with android:transitionName="robot"
+                ActivityOptions options = ActivityOptions
+                        .makeSceneTransitionAnimation((Activity) context, holder.imageCar, CarsDetailsActivity.VIEW_NAME_HEADER_IMAGE);
+
+                //Move to next
                 moveWithData.putExtra("selectedCar",carData);
                 moveWithData.putExtra("startDate",startDate);
                 moveWithData.putExtra("endDate",endDate);
 
-                context.startActivity(moveWithData);
+                ActivityOptions activityOptions = ActivityOptions
+                        .makeSceneTransitionAnimation((Activity) context, holder.imageCar, CarsDetailsActivity.VIEW_NAME_HEADER_IMAGE);
+
+                // Now we can start the Activity, providing the activity options as a bundle
+                context.startActivity(moveWithData, activityOptions.toBundle());
             }
         });
     }

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -31,7 +32,7 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 public class FirstActivity extends AppCompatActivity {
 
     //Google
-
+    LottieAnimationView loaderAnimation;
 
     //Google sign in
     int RC_SIGN_IN = 0;
@@ -60,7 +61,6 @@ public class FirstActivity extends AppCompatActivity {
 
         emailField = findViewById(R.id.editTextEmail);
         passwordField = findViewById(R.id.editTextPassword);
-
 
         //Progress HUD
         hud = KProgressHUD.create(FirstActivity.this)

@@ -5,10 +5,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -82,7 +85,7 @@ public class WelcomeActivity extends Fragment implements View.OnClickListener {
                             Calendar calendar = Calendar.getInstance();
                             calendar.set(year, monthOfYear, dayOfMonth);
 
-                            SimpleDateFormat format = new SimpleDateFormat("EEE, d MMM");
+                            SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
                             String strDatePickup = format.format(calendar.getTime());
 
                             editTextPickupDate.setText(strDatePickup);
@@ -108,7 +111,10 @@ public class WelcomeActivity extends Fragment implements View.OnClickListener {
             mDay = c.get(Calendar.DAY_OF_MONTH);
 
             Date today = new Date();
-            c.setTime(today);
+            Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
+
+            c.setTime(tomorrow);
+
             long minDate = c.getTime().getTime();// Twice!
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
@@ -121,7 +127,7 @@ public class WelcomeActivity extends Fragment implements View.OnClickListener {
                             Calendar calendar = Calendar.getInstance();
                             calendar.set(year, monthOfYear, dayOfMonth);
 
-                            SimpleDateFormat format = new SimpleDateFormat("EEE, d MMM");
+                            SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
                             String strDateReturn = format.format(calendar.getTime());
 
                             editTextReturnDate.setText(strDateReturn);
@@ -140,16 +146,43 @@ public class WelcomeActivity extends Fragment implements View.OnClickListener {
             }
             else
             {
-                Intent intent = new Intent(getActivity(), CarsActivity.class);
+                //Check if the dates are valid.
+                try {
+                    Date dateStart;
+                    Date dateReturn;
+                    SimpleDateFormat dates = new SimpleDateFormat("MM/dd/yyyy");
+                    dateStart = dates.parse(editTextPickupDate.getText().toString());
+                    dateReturn = dates.parse(editTextReturnDate.getText().toString());
 
-                intent.putExtra("startDate",editTextPickupDate.getText().toString());
-                intent.putExtra("endDate",editTextReturnDate.getText().toString());
+                    long difference = dateStart.getTime() - dateReturn.getTime();
 
-                startActivity(intent);
+                    if (difference > 0)
+                    {
+                        Toast.makeText(getActivity(), "Please select a valid return date!", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Intent intent = new Intent(getActivity(), CarsActivity.class);
+
+                        intent.putExtra("startDate",editTextPickupDate.getText().toString());
+                        intent.putExtra("endDate",editTextReturnDate.getText().toString());
+
+                        startActivity(intent);
+                    }
+
+                } catch (Exception exception) {
+                    Toast.makeText(view.getContext(), "Unable to find difference", Toast.LENGTH_SHORT).show();
+                }
             }
-
         }
+    }
 
+    public static int getDaysDifference(Date fromDate, Date toDate)
+    {
+        if(fromDate==null||toDate==null)
+            return 0;
+
+        return (int)( (toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
     }
 
 }

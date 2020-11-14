@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
@@ -67,7 +68,6 @@
                 android:focusable="auto"
                 android:fontFamily="@font/lato"
                 android:text="@string/book"
-                android:textColor="#5E5454"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

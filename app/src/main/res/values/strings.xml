@@ -26,7 +26,7 @@
     <string name="gloves">Driving Gloves ($10)</string>
     <string name="childSeat">Child Seat ($70)</string>
     <string name="addons">Add Ons</string>
-    <string name="pickupLocation">Select pickup location</string>
+    <string name="pickupLocation">PICKUP LOCATION</string>
     <string name="selectaddons">Select Add Ons</string>
     <string name="Review">Review</string>
     <string name="navigation_drawer_open">Open Navigation Bar</string>
@@ -44,11 +44,22 @@
     <string name="selectedLocation">Selected Location</string>
     <string name="proceedToBook">Proceed to Book</string>
     <string name="confirmation">Payment Confirmation</string>
-    <string name="payAtPickup">Pay at Pickup</string>
-    <string name="payUsingPaypal">Pay using Paypal</string>
+    <string name="payAtPickup">PAY AT PICKUP</string>
+    <string name="payUsingPaypal">PAY USING PAYPAL</string>
     <string name="confirmed">Confirmed</string>
     <string name="goToHome">Go To Home</string>
     <string name="book">BOOK</string>
+    <string name="carTrans">cart</string>
+    <string name="add_ons">ADD ONS</string>
+    <string name="vehicle">VEHICLE</string>
+    <string name="unlimitedkilometers">Unlimited Kilometers</string>
+    <string name="included">Included</string>
+    <string name="taxes">TAXES</string>
+    <string name="pvrt">PVRT</string>
+    <string name="vlcrec">VLF</string>
+    <string name="gst">GOODS AND SVCS TAX (5.0%)</string>
+    <string name="pst">PST (7.0%)</string>
+    <string name="finalWord">FINAL</string>
 
     <string-array name="pickuplocations">
         <item>Surrey</item>
@@ -60,5 +71,19 @@
         <item>Vancouver</item>
         <item>Richmond</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="mapLocation">Location</string>
+    <string name="title_activity_taxex_scrolling">ScrollingActivity</string>
+    <string name="large_text">
+        "<b>Passenger Vehicle Rental Tax (PVRT)</b>"
+        "<ul>"
+        "<li>PVRT is charged at a rate of $1.50/day.</li>"
+        "<li>PVRT is not charged if the rental period is eight consecutive hours or less.</li>"
+        "<li>PVRT is not charged if the rental period is more than 28 consecutive days.</li>"
+        "<li>GST applies to the PVRT daily rate.</li>"
+        "</ul><b>\nVehicle Licensing Fee</b>"
+        "\nThis fee is for Quick Rental recovery of the proportionate amount of vehicle registration, licensing and related fees applicable to a rental."
+    </string>
+    <string name="action_settings">Settings</string>
 
 </resources>
