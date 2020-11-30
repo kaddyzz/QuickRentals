@@ -9,10 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.quickrentals.ModelClasses.Booking;
 import com.example.quickrentals.ModelClasses.Cars;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -48,7 +46,7 @@ public class ReviewActivity extends AppCompatActivity {
 
 
         TextView textViewCarName = findViewById(R.id.textViewCarName);
-        TextView textViewDate = findViewById(R.id.textViewDate);
+        TextView textViewDate = findViewById(R.id.textViewStart);
         TextView textViewAddOns = findViewById(R.id.textViewAddOns);
         TextView textViewLocation = findViewById(R.id.textViewLocation);
 

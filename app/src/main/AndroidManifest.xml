@@ -12,13 +12,20 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher_new"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_launcher_new"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TaxexScrollingActivity"/>
-        <activity android:name=".BookingsActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Vendor.VendorBookingsActivity" />
+        <activity android:name=".TaxexScrollingActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -31,22 +38,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MapsActivity"/>
+        <activity android:name=".MapsActivity" />
         <activity android:name=".ConfirmationActivity" />
         <activity android:name=".PaymentCarActivity" />
         <activity android:name=".ReviewActivity" />
         <activity android:name=".AddOnsActivity" />
         <activity android:name=".CarsDetailsActivity" />
         <activity android:name=".CarsActivity" />
-        <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".NavigationMainActivity" />
-        <activity android:name=".FirstActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".PreAuth.ForgotPasswordActivity" />
+        <activity android:name=".PreAuth.SignUp" />
+        <activity android:name=".NavigationFragments.NavigationMainActivity" />
+        <activity android:name=".PreAuth.FirstActivity">
         </activity>
 
         <meta-data

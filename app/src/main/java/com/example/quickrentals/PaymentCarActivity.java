@@ -173,8 +173,7 @@ public class PaymentCarActivity extends AppCompatActivity {
 
 
     public void processPayment() {
-
-        PayPalPayment payment = new PayPalPayment(new BigDecimal("14.00"), "CAD", "Quick Rentals Booking",
+        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(finalCarPriceWithTax)), "CAD", "Quick Rentals Booking",
                 PayPalPayment.PAYMENT_INTENT_SALE);
 
         Intent intent = new Intent(this, com.paypal.android.sdk.payments.PaymentActivity.class);
@@ -221,6 +220,7 @@ public class PaymentCarActivity extends AppCompatActivity {
         booking.setPaymentStatus(paymentMethod);
         booking.setUserName(pref.getString("fullName", ""));
         booking.setUserID(pref.getString("userID", ""));
+        booking.setBookingStatus("0");
 
         hud.show();
 

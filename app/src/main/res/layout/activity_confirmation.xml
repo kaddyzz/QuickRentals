@@ -22,6 +22,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/buttonAddToCalender"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/gradient2"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="Date"
+        android:textColor="#414141"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWhen" />
+
+    <Button
+        android:id="@+id/buttonLocation"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/gradient2"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="Surrey"
+        android:textColor="#414141"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWhere" />
+
     <View
         android:id="@+id/viewTitle"
         android:layout_width="wrap_content"
@@ -49,9 +81,9 @@
         app:layout_constraintTop_toTopOf="@+id/viewTitle" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewConfirmedAnimation"
         android:layout_width="0dp"
-        android:layout_height="263dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewTitle"
@@ -60,15 +92,43 @@
         app:lottie_rawRes="@raw/bookingconfirmed" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewBookingConfirmed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lato"
         android:gravity="center"
-        android:text="Booking Confirmed"
-        android:textSize="30sp"
+        android:text="@string/bookingconfirmed"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewConfirmedAnimation" />
+
+    <TextView
+        android:id="@+id/textViewWhen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="When"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBookingConfirmed" />
+
+    <TextView
+        android:id="@+id/textViewWhere"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="Where"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddToCalender" />
 </androidx.constraintlayout.widget.ConstraintLayout>

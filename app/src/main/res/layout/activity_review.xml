@@ -134,7 +134,7 @@
         app:layout_constraintTop_toTopOf="@+id/viewBgDates" />
 
     <TextView
-        android:id="@+id/textViewDate"
+        android:id="@+id/textViewStart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F1C3E"
-    tools:context=".FirstActivity">
+    tools:context=".PreAuth.FirstActivity">
 
     <TextView
         android:id="@+id/textViewSubTitle2"

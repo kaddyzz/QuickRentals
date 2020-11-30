@@ -23,12 +23,16 @@ public class Booking implements Serializable {
 
     public String finalPrice;
 
+    public String bookingStatus;
+
     //Empty constructor
     public Booking() {
     }
 
-
     //Getters
+    public String getBookingStatus() {
+        return bookingStatus;
+    }
 
     public String getNoOfDays() {
         return noOfDays;
@@ -113,6 +117,10 @@ public class Booking implements Serializable {
 
     public void setSelectedLocation(String selectedLocation) {
         this.selectedLocation = selectedLocation;
+    }
+
+    public void setBookingStatus(String bookingStatus) {
+        this.bookingStatus = bookingStatus;
     }
 
     public void setPaymentStatus(String paymentStatus) {
