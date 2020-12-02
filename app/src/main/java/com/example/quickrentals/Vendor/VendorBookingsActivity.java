@@ -61,6 +61,8 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
 
         textViewTitle = findViewById(R.id.textViewTitle);
         buttonSignout = findViewById(R.id.buttonSignOut);
+        recyclerViewBookings = findViewById(R.id.recyclerViewBookings);
+
 
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
         spinnerLocation = findViewById(R.id.spinnerLocations);
@@ -124,13 +126,14 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
 
                             if (bookingList.isEmpty())
                             {
+                                recyclerViewBookings.setVisibility(View.INVISIBLE);
                                 textViewTitle.setText("You haven't booked any cars yet!");
                             }
                             else
                             {
-                                bookingsAdapter = new BookingsAdapter(bookingList, true);
+                                recyclerViewBookings.setVisibility(View.VISIBLE);
 
-                                recyclerViewBookings = findViewById(R.id.recyclerViewBookings);
+                                bookingsAdapter = new BookingsAdapter(bookingList, true);
 
                                 recyclerViewBookings.setLayoutManager(new LinearLayoutManager(VendorBookingsActivity.this));
 
@@ -154,5 +157,11 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getBookings();
     }
 }

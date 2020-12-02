@@ -89,6 +89,8 @@
     <string name="booking">Bookings</string>
     <string name="upcoming">• UPCOMING •</string>
     <string name="ongoing">• ONGOING •</string>
+    <string name="completedTrip">• COMPLETED •</string>
+
     <string name="currentbookings">Current Bookings</string>
     <string name="yourlocation">Your Location</string>
     <string name="filterByCarType">Filter by Car Type</string>
