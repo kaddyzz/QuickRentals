@@ -1,6 +1,8 @@
 package com.example.quickrentals.Adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quickrentals.BookingDetailsActivity;
+import com.example.quickrentals.CarsDetailsActivity;
 import com.example.quickrentals.ModelClasses.Booking;
 import com.example.quickrentals.R;
 
@@ -42,7 +47,7 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
         final Booking bookingData = bookingsList.get(position);
 
@@ -62,6 +67,19 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
 
         holder.textViewPrice.setText(String.format("$%s",bookingData.getFinalPrice()));
 
+        holder.buttonMultiTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent moveWithData = new Intent(context, BookingDetailsActivity.class);
+
+                moveWithData.putExtra("booking", bookingsList.get(position));
+                moveWithData.putExtra("isVendor", isVendor);
+
+                context.startActivity(moveWithData);
+            }
+        });
+
         if (bookingData.getPaymentStatus().equals("Payment Pending"))
         {
             holder.imageViewPaymentStatus.setImageResource(R.drawable.paymentailed);
@@ -77,25 +95,21 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
             {
                 holder.textViewBookingStatus.setText(R.string.upcoming);
                 holder.viewStatus.setBackgroundColor(0xFF03DAC5);
-                holder.buttonMultiTask.setText("TAKE PAYMENT");
             }
             else if (bookingData.getBookingStatus().equals("0") && bookingData.getPaymentStatus().equals("Payment Complete"))
             {
                 holder.textViewBookingStatus.setText(R.string.upcoming);
                 holder.viewStatus.setBackgroundColor(0xFF03DAC5);
-                holder.buttonMultiTask.setText("ISSUE CAR");
             }
             else if (bookingData.getBookingStatus().equals("1"))
             {
                 holder.textViewBookingStatus.setText(R.string.ongoing);
                 holder.viewStatus.setBackgroundColor(0xFF4CAF50);
-                holder.buttonMultiTask.setText("PROCESS RETURN");
             }
             else
             {
                 holder.textViewBookingStatus.setText("");
                 holder.viewStatus.setBackgroundColor(0xFF9CA59C);
-                holder.buttonMultiTask.setText("HELP");
             }
         }
         else
@@ -104,19 +118,16 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
             {
                 holder.textViewBookingStatus.setText(R.string.upcoming);
                 holder.viewStatus.setBackgroundColor(0xFF03DAC5);
-                holder.buttonMultiTask.setText("CANCEL");
             }
             else if (bookingData.getBookingStatus().equals("1"))
             {
                 holder.textViewBookingStatus.setText(R.string.ongoing);
                 holder.viewStatus.setBackgroundColor(0xFF4CAF50);
-                holder.buttonMultiTask.setText("HELP");
             }
             else
             {
                 holder.textViewBookingStatus.setText("");
                 holder.viewStatus.setBackgroundColor(0xFF9CA59C);
-                holder.buttonMultiTask.setText("HELP");
             }
         }
 
@@ -160,8 +171,8 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
 
             this.viewStatus = itemView.findViewById(R.id.viewStatus);
         }
-
     }
+
 
 
 }

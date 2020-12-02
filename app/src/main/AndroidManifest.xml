@@ -17,7 +17,8 @@
         android:roundIcon="@drawable/ic_launcher_new"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".BookingDetailsActivity"></activity>
+        <activity android:name=".PreAuth.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,8 +49,7 @@
         <activity android:name=".PreAuth.ForgotPasswordActivity" />
         <activity android:name=".PreAuth.SignUp" />
         <activity android:name=".NavigationFragments.NavigationMainActivity" />
-        <activity android:name=".PreAuth.FirstActivity">
-        </activity>
+        <activity android:name=".PreAuth.FirstActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

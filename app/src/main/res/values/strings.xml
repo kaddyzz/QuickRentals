@@ -91,5 +91,7 @@
     <string name="ongoing">• ONGOING •</string>
     <string name="currentbookings">Current Bookings</string>
     <string name="yourlocation">Your Location</string>
+    <string name="filterByCarType">Filter by Car Type</string>
+    <string name="bookingdetails">Booking Details</string>
 
 </resources>

@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quickrentals.Adapters.BookingsAdapter;
 import com.example.quickrentals.ModelClasses.Booking;
@@ -36,31 +37,45 @@ public class BookingsActivity extends Fragment {
 
     private BookingsAdapter bookingsAdapter;
     private RecyclerView recyclerViewBookings;
-
-
     private FirebaseFirestore db;
+    private TextView textViewTitle;
+    private KProgressHUD hud;
+
+    private List<Booking> bookingList;
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.activity_bookings, container, false);
 
-        //Create modal class object
-        final List<Booking> bookingList = new ArrayList<>();
+        recyclerViewBookings = view.findViewById(R.id.recyclerViewBookings);
 
         // [START get_firestore_instance]
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         //Create HUD
-        final KProgressHUD hud = KProgressHUD.create(getContext())
+        hud = KProgressHUD.create(getContext())
                 .setStyle(KProgressHUD.Style.ANNULAR_DETERMINATE)
-                .setLabel("Please wait").show();
+                .setLabel("Please wait");
+
+        textViewTitle = view.findViewById(R.id.textViewTitle);
+
+        //Call firebase to give you all the bookings
+        getAllBookings();
+
+        return view;
+
+    }
+
+    private void getAllBookings()
+    {
+
+        hud.show();
 
         //Get id
         final SharedPreferences pref = getContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
-
-        final TextView textViewTitle = view.findViewById(R.id.textViewTitle);
-
 
         //Get bookings from firebase
         db.collection("bookings")
@@ -75,6 +90,9 @@ public class BookingsActivity extends Fragment {
 
                         String bookingID = "";
 
+                        //Create modal class object
+                        bookingList = new ArrayList<>();
+
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
@@ -87,13 +105,14 @@ public class BookingsActivity extends Fragment {
 
                             if (bookingList.isEmpty())
                             {
+                                recyclerViewBookings.setVisibility(View.INVISIBLE);
                                 textViewTitle.setText("You haven't booked any cars yet!");
                             }
                             else
                             {
-                                bookingsAdapter = new BookingsAdapter(bookingList, false);
+                                recyclerViewBookings.setVisibility(View.VISIBLE);
 
-                                recyclerViewBookings = view.findViewById(R.id.recyclerViewBookings);
+                                bookingsAdapter = new BookingsAdapter(bookingList, false);
 
                                 recyclerViewBookings.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -106,10 +125,12 @@ public class BookingsActivity extends Fragment {
                         }
                     }
                 });
-
-        return view;
-
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getAllBookings();
+    }
 
 }

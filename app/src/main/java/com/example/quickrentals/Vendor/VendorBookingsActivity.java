@@ -69,6 +69,7 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
         //Creating the ArrayAdapter instance having the country list
         ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item, spinnerLocations);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         //Setting the ArrayAdapter data on the Spinner
         spinnerLocation.setAdapter(aa);
 

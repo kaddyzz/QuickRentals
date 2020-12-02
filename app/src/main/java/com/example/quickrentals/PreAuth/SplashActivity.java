@@ -1,4 +1,4 @@
-package com.example.quickrentals;
+package com.example.quickrentals.PreAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-import com.example.quickrentals.PreAuth.FirstActivity;
+import com.example.quickrentals.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 8000;
+    private static int SPLASH_SCREEN = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

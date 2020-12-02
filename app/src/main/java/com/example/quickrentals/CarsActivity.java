@@ -8,10 +8,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.quickrentals.Adapters.CarsAdapter;
 import com.example.quickrentals.ModelClasses.Cars;
+import com.example.quickrentals.Vendor.VendorBookingsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,12 +27,16 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarsActivity extends AppCompatActivity {
+public class CarsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    RecyclerView recyclerView;
-    CarsAdapter carsAdapter;
-    KProgressHUD kProgressHUD;
+    private RecyclerView recyclerView;
+    private CarsAdapter carsAdapter;
+    private KProgressHUD kProgressHUD;
     private String startDate, endDate;
+    private FirebaseFirestore db;
+    private Spinner spinnerCarType;
+    private String[] arrayCarType = {"All","Sports Car", "Sedan", "Hatchback", "SUV"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +49,15 @@ public class CarsActivity extends AppCompatActivity {
         TextView textViewStartDate = findViewById(R.id.textViewStartDate);
         TextView textViewEndDate = findViewById(R.id.textViewEndDate);
 
+        spinnerCarType = findViewById(R.id.spinnerCarType);
+        spinnerCarType.setOnItemSelectedListener(this);
 
-        //Create modal class object
-        final List<Cars> carsList = new ArrayList<>();
+        //Creating the ArrayAdapter instance having the country list
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arrayCarType);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        //Setting the ArrayAdapter data on the Spinner
+        spinnerCarType.setAdapter(aa);
 
 
         //Get last data
@@ -64,40 +79,98 @@ public class CarsActivity extends AppCompatActivity {
                 .setLabel("Please wait");
 
         // [START get_firestore_instance]
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
 
+        getCars(0);
+
+    }
+
+    private void getCars(int position)
+    {
         kProgressHUD.show();
 
-        //Get cars
-        db.collection("cars")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                        //Dismiss HUD
-                        kProgressHUD.dismiss();
+        if (position > 0)
+        {
+            //Get cars
+            db.collection("cars")
+                    .whereEqualTo("carType",spinnerCarType.getSelectedItem().toString())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("FIREBASE", document.getId() + " => " + document.get("carMake"));
+                            //Dismiss HUD
+                            kProgressHUD.dismiss();
 
-                                //Add each car to car list
-                                Cars cars = document.toObject(Cars.class);
-                                carsList.add(cars);
+                            List<Cars> carsList = new ArrayList<>();
+
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Log.d("FIREBASE", document.getId() + " => " + document.get("carMake"));
+
+                                    //Add each car to car list
+                                    Cars cars = document.toObject(Cars.class);
+                                    carsList.add(cars);
+                                }
+
+                                carsAdapter = new CarsAdapter(carsList, startDate, endDate);
+                                recyclerView = findViewById(R.id.recyclerViewCars);
+                                recyclerView.setLayoutManager(new LinearLayoutManager(CarsActivity.this));
+                                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                                recyclerView.setAdapter(carsAdapter);
+
+                            } else {
+                                Log.d("FIREBASE", "Error getting documents: ", task.getException());
                             }
-
-                            carsAdapter = new CarsAdapter(carsList, startDate, endDate);
-                            recyclerView = findViewById(R.id.recyclerViewCars);
-                            recyclerView.setLayoutManager(new LinearLayoutManager(CarsActivity.this));
-                            recyclerView.setItemAnimator(new DefaultItemAnimator());
-                            recyclerView.setAdapter(carsAdapter);
-
-                        } else {
-                            Log.d("FIREBASE", "Error getting documents: ", task.getException());
                         }
-                    }
-                });
+                    });
+        }
+        else {
+            //Get cars
+            db.collection("cars")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                            //Dismiss HUD
+                            kProgressHUD.dismiss();
+
+                            List<Cars> carsList = new ArrayList<>();
+
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Log.d("FIREBASE", document.getId() + " => " + document.get("carMake"));
+
+                                    //Add each car to car list
+                                    Cars cars = document.toObject(Cars.class);
+                                    carsList.add(cars);
+                                }
+
+                                carsAdapter = new CarsAdapter(carsList, startDate, endDate);
+                                recyclerView = findViewById(R.id.recyclerViewCars);
+                                recyclerView.setLayoutManager(new LinearLayoutManager(CarsActivity.this));
+                                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                                recyclerView.setAdapter(carsAdapter);
+
+                            } else {
+                                Log.d("FIREBASE", "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+        }
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        //onItemSelected
+        getCars(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

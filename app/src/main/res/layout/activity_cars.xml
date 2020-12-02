@@ -8,6 +8,31 @@
     tools:context=".CarsActivity">
 
     <View
+        android:id="@+id/viewBg"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:alpha="0.1"
+        android:background="@drawable/customgrad2"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewStripDate" />
+
+    <Spinner
+        android:id="@+id/spinnerCarType"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/viewBg"
+        app:layout_constraintStart_toStartOf="@+id/viewBg"
+        app:layout_constraintTop_toTopOf="@+id/viewBg" />
+
+    <View
         android:id="@+id/view2"
         android:layout_width="wrap_content"
         android:layout_height="64dp"
@@ -80,11 +105,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewStripDate" />
+        app:layout_constraintTop_toBottomOf="@+id/viewBg" />
 
     <ImageView
         android:id="@+id/imageViewRightArrow"
