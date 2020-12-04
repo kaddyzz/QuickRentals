@@ -2,26 +2,21 @@ package com.example.quickrentals.NavigationFragments;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.quickrentals.Adapters.BookingsAdapter;
 import com.example.quickrentals.ModelClasses.Booking;
-import com.example.quickrentals.ModelClasses.Cars;
-import com.example.quickrentals.PreAuth.FirstActivity;
 import com.example.quickrentals.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -59,7 +54,7 @@ public class BookingsActivity extends Fragment {
                 .setStyle(KProgressHUD.Style.ANNULAR_DETERMINATE)
                 .setLabel("Please wait");
 
-        textViewTitle = view.findViewById(R.id.textViewTitle);
+        textViewTitle = view.findViewById(R.id.textViewWishes);
 
         //Call firebase to give you all the bookings
         getAllBookings();

@@ -58,7 +58,6 @@ public class FirstActivity extends AppCompatActivity {
         //Object Instantiation
         Button buttonLogin = findViewById(R.id.buttonLogin);
         Button buttonSignup = findViewById(R.id.buttonSignUp);
-        Button buttonFBLogin = findViewById(R.id.buttonFBLogin);
         Button buttonGoogleLogin = findViewById(R.id.buttonGoogleLogin);
         Button buttonForgotPassword = findViewById(R.id.buttonForgotPassword);
 

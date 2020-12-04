@@ -37,7 +37,7 @@
         android:textColorHint="#eaeaea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWishes" />
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -89,7 +89,7 @@
         app:srcCompat="@drawable/skl" />
 
     <TextView
-        android:id="@+id/textViewTitle"
+        android:id="@+id/textViewWishes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -112,7 +112,7 @@
         android:textColor="#eaeaea"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWishes" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageViewUserImage"
@@ -121,7 +121,7 @@
         android:layout_marginTop="188dp"
         android:layout_marginEnd="32dp"
         android:contentDescription="@string/imageView"
-        android:src="@drawable/add_photo"
+        android:src="@drawable/mf"
         app:civ_border_color="#ffffff"
         app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"

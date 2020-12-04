@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -27,11 +28,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class NavigationMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class NavigationMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ProfileActivity.InteractionListener {
 
     private DrawerLayout drawerLayout;
-    GoogleSignInClient googleSignInClient;
-    SharedPreferences pref;
+    private GoogleSignInClient googleSignInClient;
+    private SharedPreferences pref;
+
+    private TextView profileName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +55,11 @@ public class NavigationMainActivity extends AppCompatActivity implements Navigat
         //Get header view to load data
         View headerView = navigationView.getHeaderView(0);
         ImageView profileImage = headerView.findViewById(R.id.imageProfile);
-        TextView profileName = headerView.findViewById(R.id.nameProfile);
+        profileName = headerView.findViewById(R.id.nameProfile);
         TextView profileEmail = headerView.findViewById(R.id.emailProfile);
 
         //Call shared  pref to get data profile
         pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-        SharedPreferences.Editor editor = pref.edit();
 
         profileName.setText(pref.getString("fullName", ""));
         profileEmail.setText(pref.getString("email", ""));
@@ -108,7 +111,7 @@ public class NavigationMainActivity extends AppCompatActivity implements Navigat
                 break;
 
             case R.id.nav_profile:
-                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainActivity2()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileActivity()).commit();
                 break;
 
             case R.id.nav_history:
@@ -182,4 +185,11 @@ public class NavigationMainActivity extends AppCompatActivity implements Navigat
                 break;
         }
     }
+
+    @Override
+    public void onFragmentInteraction() {
+
+        pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        profileName.setText(pref.getString("fullName", ""));
     }
+}

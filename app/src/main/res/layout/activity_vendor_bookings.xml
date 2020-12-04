@@ -20,7 +20,7 @@
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWishes" />
 
     <View
         android:id="@+id/viewSeperator8"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toTopOf="@+id/viewBgPickupLocation" />
 
     <TextView
-        android:id="@+id/textViewTitle"
+        android:id="@+id/textViewWishes"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:background="#6200EE"

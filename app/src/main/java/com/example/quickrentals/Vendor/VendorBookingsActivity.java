@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,11 +15,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.quickrentals.Adapters.BookingsAdapter;
 import com.example.quickrentals.ModelClasses.Booking;
-import com.example.quickrentals.NavigationFragments.NavigationMainActivity;
 import com.example.quickrentals.PreAuth.FirstActivity;
 import com.example.quickrentals.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -59,7 +56,7 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
                 .setLabel("Please wait");
 
 
-        textViewTitle = findViewById(R.id.textViewTitle);
+        textViewTitle = findViewById(R.id.textViewWishes);
         buttonSignout = findViewById(R.id.buttonSignOut);
         recyclerViewBookings = findViewById(R.id.recyclerViewBookings);
 

@@ -49,6 +49,20 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
         editTextReturnDate = view.findViewById(R.id.editTextReturnDate);
         buttonSelectCar = view.findViewById(R.id.buttonSelectCar);
         TextView textViewSub = view.findViewById(R.id.textViewSub);
+        TextView textViewSalutation = view.findViewById(R.id.textViewWishes);
+
+        Calendar c = Calendar.getInstance();
+        int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
+
+        if(timeOfDay >= 0 && timeOfDay < 12){
+            textViewSalutation.setText("Good Morning");
+        }else if(timeOfDay >= 12 && timeOfDay < 16){
+            textViewSalutation.setText("Good Afternoon");
+        }else if(timeOfDay >= 16 && timeOfDay < 21){
+            textViewSalutation.setText("Good Evening");
+        }else if(timeOfDay >= 21 && timeOfDay < 24){
+            textViewSalutation.setText("Good Night");
+        }
 
         //Call shared  pref to get data profile
         SharedPreferences pref = getActivity().getSharedPreferences("MyPref", 0); // 0 - for private mode

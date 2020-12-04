@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:id="@+id/textViewTitle"
+        android:id="@+id/textViewWishes"
         android:elevation="5sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
