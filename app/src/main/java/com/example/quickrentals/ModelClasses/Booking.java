@@ -6,11 +6,16 @@ public class Booking implements Serializable {
 
     public String userID;
     public String userName;
+    public String userRating;
+    public String dlNumber;
+
 
     public String carImage;
     public String carMake;
     public String carModel;
     public String carPricePerDay;
+    public String fuelLevel;
+
 
     public String addOns;
     public String addOnsPrice;
@@ -25,22 +30,24 @@ public class Booking implements Serializable {
 
     public String bookingStatus;
 
-    public String bookingFeedback;
-
-    public String fuelLevel;
-    public String dlNumber;
-
-    public String rating;
+    public String bookingCustomerLikeOrHateFeedback;
+    public String bookingVendorDamageFeedback;
 
     //Empty constructor
     public Booking() {
     }
 
     //Getters
+    public String getUserRating() {
+        return userRating;
+    }
 
+    public String getBookingCustomerLikeOrHateFeedback() {
+        return bookingCustomerLikeOrHateFeedback;
+    }
 
-    public String getRating() {
-        return rating;
+    public String getBookingVendorDamageFeedback() {
+        return bookingVendorDamageFeedback;
     }
 
     public String getFuelLevel() {
@@ -51,9 +58,6 @@ public class Booking implements Serializable {
         return dlNumber;
     }
 
-    public String getBookingFeedback() {
-        return bookingFeedback;
-    }
 
     public String getBookingStatus() {
         return bookingStatus;
@@ -176,10 +180,6 @@ public class Booking implements Serializable {
         this.userID = userID;
     }
 
-    public void setBookingFeedback(String bookingFeedback) {
-        this.bookingFeedback = bookingFeedback;
-    }
-
     public void setDlNumber(String dlNumber) {
         this.dlNumber = dlNumber;
     }
@@ -188,8 +188,16 @@ public class Booking implements Serializable {
         this.fuelLevel = fuelLevel;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setBookingVendorDamageFeedback(String bookingVendorDamageFeedback) {
+        this.bookingVendorDamageFeedback = bookingVendorDamageFeedback;
+    }
+
+    public void setUserRating(String userRating) {
+        this.userRating = userRating;
+    }
+
+    public void setBookingCustomerLikeOrHateFeedback(String bookingCustomerLikeOrHateFeedback) {
+        this.bookingCustomerLikeOrHateFeedback = bookingCustomerLikeOrHateFeedback;
     }
 }
 

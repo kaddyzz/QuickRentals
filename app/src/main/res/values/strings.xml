@@ -112,5 +112,12 @@
     <string name="feedbackWord">Feedback</string>
     <string name="processreturn">Process Return</string>
     <string name="ratingTitle">Please rate the booking (The greater the better)</string>
+    <string name="noAddons">No Addons were given.</string>
+    <string name="takepayment">Take Payment</string>
+    <string name="issuecar">ISSUE CAR</string>
+    <string name="processreturnword">PROCESS RETURN</string>
+    <string name="cancel">Cancel</string>
+    <string name="needroadsideass">Need RoadSide Assistance</string>
+    <string name="sharerecipt">Share Receipt</string>
 
 </resources>

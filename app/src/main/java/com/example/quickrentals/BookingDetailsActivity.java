@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -156,6 +157,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
         getBookings();
     }
 
+    @SuppressLint("SetTextI18n")
     private void well()
     {
         textViewBookingID.setText(eachBooking.getUserName());
@@ -176,11 +178,11 @@ public class BookingDetailsActivity extends AppCompatActivity {
             imageViewPaymentStatus.setImageResource(R.drawable.p1);
         }
 
-        if (eachBooking.getBookingFeedback().equals("1"))
+        if (eachBooking.getBookingCustomerLikeOrHateFeedback().equals("1"))
         {
             thumb_up.setProgress(1);
         }
-        else if(eachBooking.getBookingFeedback().equals("2"))
+        else if(eachBooking.getBookingCustomerLikeOrHateFeedback().equals("2"))
         {
             thumb_down.setProgress(1);
         }
@@ -189,7 +191,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
         {
             if (eachBooking.getBookingStatus().equals("0") && eachBooking.getPaymentStatus().equals("Payment Pending"))
             {
-                buttonMulti.setText("Take Payment");
+                buttonMulti.setText(R.string.takepayment);
                 textViewBookingStatus.setText(R.string.upcoming);
                 viewStatus.setBackgroundColor(0xFF03DAC5);
 
@@ -204,19 +206,22 @@ public class BookingDetailsActivity extends AppCompatActivity {
             {
                 textViewBookingStatus.setText(R.string.upcoming);
                 viewStatus.setBackgroundColor(0xFF03DAC5);
-                buttonMulti.setText("ISSUE CAR");
+                buttonMulti.setText(R.string.issuecar);
 
 
                 buttonMulti.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(BookingDetailsActivity.this, CarIssueActivity.class);
+                        if (eachBooking.getAddOns().equals("None"))
+                        {
+                            callAlert("Message!","No Addons selected by user.","OK","CANCEL");
+                        }
+                        else
+                        {
+                            callAlert("Message!",String.format("Please give %s to the customer.",eachBooking.getAddOns()),"OK","CANCEL");
+                        }
 
-                        intent.putExtra("bookingID",bookingID);
-                        intent.putExtra("userName",eachBooking.getUserName());
-
-                        startActivity(intent);
                     }
                 });
             }
@@ -224,7 +229,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
             {
                 textViewBookingStatus.setText(R.string.ongoing);
                 viewStatus.setBackgroundColor(0xFF4CAF50);
-                buttonMulti.setText("PROCESS RETURN");
+                buttonMulti.setText(R.string.processreturnword);
                 buttonMulti.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -232,6 +237,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
                         intent.putExtra("bookingID",bookingID);
                         intent.putExtra("addOns",eachBooking.getAddOns());
+                        intent.putExtra("fuelPercent",eachBooking.getFuelLevel());
 
                         startActivity(intent);
                     }
@@ -248,7 +254,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
         {
             if (eachBooking.getBookingStatus().equals("0"))
             {
-                buttonMulti.setText("Cancel");
+                buttonMulti.setText(R.string.cancel);
                 textViewBookingStatus.setText(R.string.upcoming);
                 viewStatus.setBackgroundColor(0xFF03DAC5);
 
@@ -261,7 +267,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
             }
             else if (eachBooking.getBookingStatus().equals("1"))
             {
-                buttonMulti.setText("Need RoadSide Assistance");
+                buttonMulti.setText(R.string.needroadsideass);
                 textViewBookingStatus.setText(R.string.ongoing);
                 viewStatus.setBackgroundColor(0xFF4CAF50);
 
@@ -275,7 +281,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
             else
             {
                 cardViewThumb.setVisibility(View.VISIBLE);
-                buttonMulti.setText("Share Receipt");
+                buttonMulti.setText(R.string.sharerecipt);
                 textViewBookingStatus.setText(R.string.completedTrip);
                 viewStatus.setBackgroundColor(0xFF9CA59C);
 
@@ -327,6 +333,17 @@ public class BookingDetailsActivity extends AppCompatActivity {
             if (eachBooking.getBookingStatus().equals("0") && eachBooking.getPaymentStatus().equals("Payment Pending"))
             {
                 updatePayment();
+            }
+            else
+                {
+                Intent intent = new Intent(BookingDetailsActivity.this, CarIssueActivity.class);
+
+                intent.putExtra("bookingID",bookingID);
+                intent.putExtra("userName",eachBooking.getUserName());
+                intent.putExtra("addOns",eachBooking.getAddOns());
+
+
+                startActivity(intent);
             }
         }
         else
@@ -423,7 +440,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
     private void updateFeedback(String feedback)
     {
         db.collection("bookings").document(bookingID)
-                .update("bookingFeedback", feedback)
+                .update("bookingCustomerLikeOrHateFeedback", feedback)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

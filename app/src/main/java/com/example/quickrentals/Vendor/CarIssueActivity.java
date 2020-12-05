@@ -1,8 +1,10 @@
 package com.example.quickrentals.Vendor;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +36,7 @@ public class CarIssueActivity extends AppCompatActivity implements AdapterView.O
 
     private String bookingID;
     private String bookingUserName;
+    private String bookingAddons;
 
     private EditText editTextDL;
 
@@ -50,6 +53,7 @@ public class CarIssueActivity extends AppCompatActivity implements AdapterView.O
         {
             bookingID = bundle.getString("bookingID");
             bookingUserName = bundle.getString("userName");
+            bookingAddons = bundle.getString("addOns");
         }
 
         toggle = findViewById(R.id.lav_toggle);

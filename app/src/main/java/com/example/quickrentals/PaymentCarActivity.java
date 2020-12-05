@@ -214,14 +214,13 @@ public class PaymentCarActivity extends AppCompatActivity {
     {
         //Get id
         final SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-        SharedPreferences.Editor editor = pref.edit();
 
         //Finalize booking details
         booking.setPaymentStatus(paymentMethod);
         booking.setUserName(pref.getString("fullName", ""));
         booking.setUserID(pref.getString("userID", ""));
         booking.setBookingStatus("0");
-        booking.setBookingFeedback("0");
+        booking.setBookingCustomerLikeOrHateFeedback("0");
 
         hud.show();
 

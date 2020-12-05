@@ -23,6 +23,7 @@ public class CarReturnActivity extends AppCompatActivity implements AdapterView.
 
     private String bookingID;
     private String bookingAddons;
+    private String fuelPercent;
 
     private CheckBox checkBoxFuelIndex;
     private CheckBox checkBoxNoDamage;
@@ -47,6 +48,7 @@ public class CarReturnActivity extends AppCompatActivity implements AdapterView.
         {
             bookingID = bundle.getString("bookingID");
             bookingAddons = bundle.getString("addOns");
+            fuelPercent = bundle.getString("fuelPercent");
         }
 
         checkBoxFuelIndex = findViewById(R.id.checkBoxFuelIndex);
@@ -58,7 +60,17 @@ public class CarReturnActivity extends AppCompatActivity implements AdapterView.
         Button buttonCarReturn = findViewById(R.id.buttonCarReturn);
 
         spinnerRating.setOnItemSelectedListener(CarReturnActivity.this);
-        checkBoxAddOns.setText(String.format("Collected %s back.",bookingAddons));
+
+        checkBoxFuelIndex.setText(String.format("Fuel index %s",fuelPercent));
+
+        if (bookingAddons.equals("None"))
+        {
+            checkBoxAddOns.setText(R.string.noAddons);
+        }
+        else
+        {
+            checkBoxAddOns.setText(String.format("Collected %s back.",bookingAddons));
+        }
 
         //Creating the ArrayAdapter instance having the rating list
         ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item, spinnerRatingArray);
@@ -108,7 +120,7 @@ public class CarReturnActivity extends AppCompatActivity implements AdapterView.
 
 
         db.collection("bookings").document(bookingID)
-                .update("bookingStatus", "2","rating",rating)
+                .update("bookingStatus", "2","userRating",rating,"bookingVendorDamageFeedback",editTextFeedback.getText().toString().trim())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
