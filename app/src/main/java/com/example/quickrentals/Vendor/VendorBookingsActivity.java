@@ -1,12 +1,14 @@
 package com.example.quickrentals.Vendor;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quickrentals.Adapters.BookingsAdapter;
 import com.example.quickrentals.ModelClasses.Booking;
@@ -22,9 +25,18 @@ import com.example.quickrentals.PreAuth.FirstActivity;
 import com.example.quickrentals.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.core.DocumentViewChange;
+import com.google.firebase.firestore.core.OrderBy;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.util.ArrayList;
@@ -49,6 +61,9 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
 
         // [START get_firestore_instance]
         db = FirebaseFirestore.getInstance();
+
+        //Listen for changes
+        listen();
 
         //Create HUD
         hud = KProgressHUD.create(this)
@@ -77,15 +92,18 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
             public void onClick(View v) {
 
                 //Sign out from Vendor
+                final SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+                SharedPreferences.Editor editor = pref.edit();
+                editor.clear();
+                editor.apply();
+                
                 startActivity(new Intent(VendorBookingsActivity.this, FirstActivity.class));
 
             }
         });
 
+        //Get all bookings from firebase
         getBookings();
-
-
-
     }
 
     private void getBookings()
@@ -95,7 +113,10 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
         String location = spinnerLocation.getSelectedItem().toString();
 
         //Get bookings from firebase
+
+
         db.collection("bookings")
+                .orderBy("pickUpDate")
                 .whereEqualTo("selectedLocation",location)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -124,7 +145,7 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
                             if (bookingList.isEmpty())
                             {
                                 recyclerViewBookings.setVisibility(View.INVISIBLE);
-                                textViewTitle.setText("You haven't booked any cars yet!");
+                                //textViewTitle.setText("You haven't booked any cars yet!");
                             }
                             else
                             {
@@ -141,6 +162,25 @@ public class VendorBookingsActivity extends AppCompatActivity implements Adapter
                         } else {
                             Log.d("FIREBASE", "Error getting documents: ", task.getException());
                         }
+                    }
+                });
+    }
+
+    private void listen()
+    {
+        db.collection("bookings")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot snapshots,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("VendorBookingsActivity", "listen:error", e);
+                            return;
+                        }
+
+
+                        //Auto Listner
+                        getBookings();
                     }
                 });
     }

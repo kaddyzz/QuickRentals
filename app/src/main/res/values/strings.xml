@@ -96,5 +96,21 @@
     <string name="filterByCarType">Filter by Car Type</string>
     <string name="bookingdetails">Booking Details</string>
     <string name="titleWelcome">OTTO Welcomes you</string>
+    <string name="feedback">How was your experience ?</string>
+    <string name="noreservations">No Reservations Found For Selected Location</string>
+    <string name="issueCar">Issue Car</string>
+    <string name="dlNumber">Please enter DL Number</string>
+    <string name="rentersTermsInfo">Please show renter all terms</string>
+    <string name="termAccept">Are the terms accepted ?</string>
+    <string name="termandconditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="fuelLevel">Please select the fuel level</string>
+    <string name="processrerturn">Process Return</string>
+    <string name="checkFollowing">Please check the following.</string>
+    <string name="fuelReturn">Same Fuel Index</string>
+    <string name="noDamage">No Damage</string>
+    <string name="feedbackDetails">If any thing is uncheck please right the details here.</string>
+    <string name="feedbackWord">Feedback</string>
+    <string name="processreturn">Process Return</string>
+    <string name="ratingTitle">Please rate the booking (The greater the better)</string>
 
 </resources>

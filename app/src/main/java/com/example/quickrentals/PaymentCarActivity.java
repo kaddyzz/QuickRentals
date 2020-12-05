@@ -221,6 +221,7 @@ public class PaymentCarActivity extends AppCompatActivity {
         booking.setUserName(pref.getString("fullName", ""));
         booking.setUserID(pref.getString("userID", ""));
         booking.setBookingStatus("0");
+        booking.setBookingFeedback("0");
 
         hud.show();
 

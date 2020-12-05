@@ -25,11 +25,36 @@ public class Booking implements Serializable {
 
     public String bookingStatus;
 
+    public String bookingFeedback;
+
+    public String fuelLevel;
+    public String dlNumber;
+
+    public String rating;
+
     //Empty constructor
     public Booking() {
     }
 
     //Getters
+
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public String getDlNumber() {
+        return dlNumber;
+    }
+
+    public String getBookingFeedback() {
+        return bookingFeedback;
+    }
+
     public String getBookingStatus() {
         return bookingStatus;
     }
@@ -149,6 +174,22 @@ public class Booking implements Serializable {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public void setBookingFeedback(String bookingFeedback) {
+        this.bookingFeedback = bookingFeedback;
+    }
+
+    public void setDlNumber(String dlNumber) {
+        this.dlNumber = dlNumber;
+    }
+
+    public void setFuelLevel(String fuelLevel) {
+        this.fuelLevel = fuelLevel;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }
 

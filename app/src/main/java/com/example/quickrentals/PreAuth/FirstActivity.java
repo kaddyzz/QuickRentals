@@ -143,6 +143,15 @@ public class FirstActivity extends AppCompatActivity {
         {
             if (emailField.getText().toString().equals("vendor@otto.com") && passwordField.getText().toString().equals("vendor"))
             {
+                //Save details in shared pref
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+                SharedPreferences.Editor editor = pref.edit();
+
+                editor.putInt("loginType",4);
+                editor.putString("userID","VENDOR1");
+
+                editor.apply(); // commit changes
+
                 startActivity(new Intent(FirstActivity.this, VendorBookingsActivity.class));
             }
             else
@@ -299,7 +308,14 @@ public class FirstActivity extends AppCompatActivity {
 
         if (pref.contains("userID"))
         {
-            startActivity(new Intent(FirstActivity.this, NavigationMainActivity.class));
+            if (pref.getString("userID","1").equals("VENDOR1"))
+            {
+                startActivity(new Intent(FirstActivity.this, VendorBookingsActivity.class));
+            }
+            else
+            {
+                startActivity(new Intent(FirstActivity.this, NavigationMainActivity.class));
+            }
         }
 
         super.onStart();

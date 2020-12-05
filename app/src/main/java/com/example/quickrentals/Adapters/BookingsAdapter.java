@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.quickrentals.BookingDetailsActivity;
 import com.example.quickrentals.CarsDetailsActivity;
 import com.example.quickrentals.ModelClasses.Booking;
@@ -26,6 +27,7 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
     private Context context;
     private List<Booking> bookingsList;
     private boolean isVendor = false;
+
 
     public BookingsAdapter(List<Booking> bookingsList, boolean isVendor) {
         this.bookingsList = bookingsList;
@@ -73,7 +75,7 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
 
                 Intent moveWithData = new Intent(context, BookingDetailsActivity.class);
 
-                moveWithData.putExtra("booking", bookingsList.get(position));
+                moveWithData.putExtra("bookingID", bookingsList.get(position).getUserID());
                 moveWithData.putExtra("isVendor", isVendor);
 
                 context.startActivity(moveWithData);
@@ -108,7 +110,7 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
             }
             else
             {
-                holder.textViewBookingStatus.setText("");
+                holder.textViewBookingStatus.setText(R.string.completedTrip);
                 holder.viewStatus.setBackgroundColor(0xFF9CA59C);
             }
         }
@@ -126,7 +128,7 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
             }
             else
             {
-                holder.textViewBookingStatus.setText("");
+                holder.textViewBookingStatus.setText(R.string.completedTrip);
                 holder.viewStatus.setBackgroundColor(0xFF9CA59C);
             }
         }
