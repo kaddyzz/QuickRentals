@@ -21,6 +21,8 @@ public class Cars implements Serializable
     public Cars()
     {}
 
+
+
     public void setCarID(String carID) {
         this.carID = carID;
     }
@@ -72,5 +74,9 @@ public class Cars implements Serializable
 
     public String getCarPrice() {
         return carPrice;
+    }
+
+    public void setCarPrice(String carPrice) {
+        this.carPrice = carPrice;
     }
 }

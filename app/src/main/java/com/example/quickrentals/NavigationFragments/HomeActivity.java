@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
@@ -11,6 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +23,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quickrentals.Adapters.BookingsAdapter;
 import com.example.quickrentals.CarsActivity;
+import com.example.quickrentals.ModelClasses.Booking;
 import com.example.quickrentals.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -40,9 +50,12 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
     EditText editTextPickupDate , editTextReturnDate;
     Button buttonSelectCar;
 
+    String userRating;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.activity_welcome, container, false);
+
 
         //Object inst
         editTextPickupDate = view.findViewById(R.id.editTextPickupDate);
@@ -193,12 +206,11 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
         }
     }
 
-    public static int getDaysDifference(Date fromDate, Date toDate)
-    {
-        if(fromDate==null||toDate==null)
+    public static int getDaysDifference(Date fromDate, Date toDate) {
+        if (fromDate == null || toDate == null)
             return 0;
 
-        return (int)( (toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
+        return (int) ((toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
     }
 
 }

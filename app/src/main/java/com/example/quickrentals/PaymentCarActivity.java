@@ -105,9 +105,9 @@ public class PaymentCarActivity extends AppCompatActivity {
             booking.setCarPricePerDay(selectedCar.getCarPrice());
 
 
-            finalCarPrice = (Integer.parseInt(selectedCar.getCarPrice()) * Integer.parseInt(booking.getNoOfDays()));
+            finalCarPrice = (Double.parseDouble(selectedCar.getCarPrice()) * Double.parseDouble(booking.getNoOfDays()));
 
-            finalCarPriceWithAddOns = (Integer.parseInt(selectedCar.getCarPrice()) * Integer.parseInt(booking.getNoOfDays())) + Integer.parseInt(booking.getAddOnsPrice());
+            finalCarPriceWithAddOns = (Double.parseDouble(selectedCar.getCarPrice()) * Double.parseDouble(booking.getNoOfDays())) + Double.parseDouble(booking.getAddOnsPrice());
 
             pricePVRT = 1.50 * Double.parseDouble(booking.getNoOfDays());
             priceVLF_REC = 1.07 * Double.parseDouble(booking.getNoOfDays());

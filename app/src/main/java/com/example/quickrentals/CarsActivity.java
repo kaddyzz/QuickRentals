@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +14,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quickrentals.Adapters.CarsAdapter;
+import com.example.quickrentals.ModelClasses.Booking;
 import com.example.quickrentals.ModelClasses.Cars;
 import com.example.quickrentals.Vendor.VendorBookingsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,6 +39,7 @@ public class CarsActivity extends AppCompatActivity implements AdapterView.OnIte
     private FirebaseFirestore db;
     private Spinner spinnerCarType;
     private String[] arrayCarType = {"All","Sports Car", "Sedan", "Hatchback", "SUV"};
+    private float userRating;
 
 
     @Override
@@ -81,7 +85,8 @@ public class CarsActivity extends AppCompatActivity implements AdapterView.OnIte
         // [START get_firestore_instance]
         db = FirebaseFirestore.getInstance();
 
-        getCars(0);
+        //Get rating and then get cars
+        getRating();
 
     }
 
@@ -89,6 +94,10 @@ public class CarsActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         kProgressHUD.show();
 
+        //SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+
+        //This algorithm will increase the price of cars according to user rating for per day.
+        final float ratingAdder = 100 - (userRating * 20);
 
         if (position > 0)
         {
@@ -111,6 +120,11 @@ public class CarsActivity extends AppCompatActivity implements AdapterView.OnIte
 
                                     //Add each car to car list
                                     Cars cars = document.toObject(Cars.class);
+
+                                    float updatedCardPrice = Float.parseFloat(cars.getCarPrice()) + ratingAdder;
+
+                                    cars.setCarPrice(String.format("%.2f",updatedCardPrice));
+
                                     carsList.add(cars);
                                 }
 
@@ -145,6 +159,11 @@ public class CarsActivity extends AppCompatActivity implements AdapterView.OnIte
 
                                     //Add each car to car list
                                     Cars cars = document.toObject(Cars.class);
+
+                                    float updatedCardPrice = Float.parseFloat(cars.getCarPrice()) + ratingAdder;
+
+                                    cars.setCarPrice(String.format("%.2f",updatedCardPrice));
+
                                     carsList.add(cars);
                                 }
 
@@ -172,5 +191,63 @@ public class CarsActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    private void getRating() {
+
+        // [START get_firestore_instance]
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        //Create HUD
+        kProgressHUD.show();
+
+        //Get id
+        final SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+
+        //Get bookings from firebase
+        db.collection("bookings")
+                .whereEqualTo("userID", pref.getString("userID", ""))
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                        //Dismiss HUD
+                        kProgressHUD.dismiss();
+
+                        float counter = 0;
+                        float fullRating = 0;
+
+
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                //Add each car to car list
+                                Booking booking = document.toObject(Booking.class);
+
+                                if (booking.getBookingStatus().equals("2")) {
+                                    counter++;
+
+                                    fullRating += Float.parseFloat(booking.getUserRating());
+                                }
+                            }
+
+                            if (fullRating == 0)
+                            {
+                                userRating = 5.0f;
+                            }
+                            else
+                            {
+                                userRating = fullRating/counter;
+                            }
+
+                            getCars(0);
+
+
+                        } else {
+                            Log.d("FIREBASE", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 }

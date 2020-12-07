@@ -101,7 +101,7 @@ public class ReviewActivity extends AppCompatActivity {
             textViewTitleAddOns.setText(String.format("Selected Add Ons ($%s)",addOnsPrice));
 
         } catch (Exception exception) {
-            Toast.makeText(this, "Unable to find difference", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Unable to find difference", Toast.LENGTH_SHORT).show();
         }
 
 

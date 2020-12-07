@@ -11,7 +11,7 @@ import com.example.quickrentals.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5;
+    private static int SPLASH_SCREEN = 8000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
